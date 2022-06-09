@@ -1,5 +1,6 @@
 # Método de Gauss Jacobi para cálculo de sistema de equações lineares
 
+
 # função que calcula subtração entre listas 
 def subtração_lista(x,y):
     subtração = []
@@ -36,3 +37,6 @@ while True:
 
 # Resultado    
 print (x)
+
+# ou utilizando numpy
+#x = np.linalg.solve(A,B)

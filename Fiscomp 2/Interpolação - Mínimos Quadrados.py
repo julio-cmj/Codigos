@@ -1,17 +1,19 @@
+# Método dos Mínimos Quadrados para interpolação de uma função
+
 import numpy as np
 
 # Valores tabelados
 x = []
 y = []
 
-# Quantidade de g(x)  n_g = quantidade de g(x)
-n_g = input('Quantidade de "g(x)" na fórmula''\n') #Exemplo g1(x) = x**2  g2(x) = x  então há dois g(x)
+# Quantidade de g(x), n_g 
+n_g = input('Quantidade de "g(x)" na fórmula''\n') #Exemplo: se a função interpoladora será y=x²+x, há dois g(x): x² e x
 n_g = int(n_g)
 
-# Criar lista com a equação de cada g(x) 
+# Cria lista com a equação de cada g(x) 
 g_x = []
 for i in range (0,n_g):
-    g_x.append(input("g(x)= "))  # A variavel deve ser x. Exemplo digitar y**2 ou X**2, neste caso digite x**2
+    g_x.append(input("g(x)= "))  # A variavel deve ser x. Exemplo: não digitar y**2 ou X**2 , neste caso digite x**2
 an = len(g_x)
 #print (g_x)
 

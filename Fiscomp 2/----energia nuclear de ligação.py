@@ -1,8 +1,8 @@
-#energia de ligação
+# Cálculo da energia núclear de ligão pela fórmula:
 # B = [Z*Mp + (A-Z)*Mn - Mnucleo] * c²
-#Mnucleo = A . Mu + delta/c² ou M_atomica * Mu
+# Mnucleo = A . Mu + delta/c² ou M_atomica * Mu
 
-
+# Valores 
 Mu = 1.660539e-27
 Mp = 1.6726e-27
 Mn = 1.6749e-27
@@ -13,8 +13,7 @@ Z = [2,6,6,8]
 A = [4,12,13,16]
 M_atomica = [4.0026032541 , 12 , 13.00335483521 , 15.99491461960]
 
-
-
+#
 while True:
     #M_nucleo = (x * Mu) + (delta/(c ** 2))
     M_nucleo = M_atomica[0] * Mu
