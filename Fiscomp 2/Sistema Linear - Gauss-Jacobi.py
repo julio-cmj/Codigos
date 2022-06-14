@@ -2,9 +2,9 @@
 
 
 # função que calcula subtração entre listas 
-def subtração_lista(x,y):
+def subtração_lista(x,Xn):
     subtração = []
-    for item1, item2 in zip(y, x):
+    for item1, item2 in zip(Xn, x):
         item = item1 - item2
         subtração.append(abs(item)) # valor absoluto ou em módulo
     return subtração
@@ -18,22 +18,30 @@ x = [0.7,-1.6,0.6]
 
 # método
 while True:
-    # termos da equação isolados
-    x0 = (7-2*x[1]-x[2])*1/10
-    x1 = (-8-x[0]-x[2])*1/5
-    x2 = (6-2*x[0]-3*x[1])*1/10
+    # Cálculo dos novos valores de Xn
+    Xn = []
+    for i in range(len(A),0,-1):
+        a = A[i-1]
+        X = B[i-1]
+        for j in range (len(A),0,-1):
+                if j != i:
+                    X = X - a[j-1] * x[j-1]
+                elif j == i:
+                    continue
+        X = X/a[i-1]
 
-    # novos valores para o chute, Xn
-    y = [round(x0,5),round(x1,5),round(x2,5)]  # arredondado em 5 casas decimais porque o python buga 
+        # novos valores para o chute, Xn 
+        Xn.append(round(X,5)) # arrendondado em 5 casas decimais
+    Xn.reverse()
 
-    # critério de parada, máx|x1 - x0| < e
-    subtração = subtração_lista(x,y)
-    e = max(subtração)
+    # critério de parada, máx|x1 - x0| / máx |x1| < e
+    subtração = subtração_lista(x,Xn)
+    e = max(subtração)# / max(Xn)
     if e < 0.05:
-        x = y  
+        x = Xn  
         break
 
-    x = y
+    x = Xn
 
 # Resultado    
 print (x)
