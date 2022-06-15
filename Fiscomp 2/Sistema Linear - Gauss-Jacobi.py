@@ -1,4 +1,5 @@
 # Método de Gauss Jacobi para cálculo de sistema de equações lineares
+# Ver critério convergência para o método
 
 
 # função que calcula subtração entre listas 
@@ -20,23 +21,23 @@ x = [0.7,-1.6,0.6]
 while True:
     # Cálculo dos novos valores de Xn
     Xn = []
-    for i in range(len(A),0,-1):
-        a = A[i-1]
-        X = B[i-1]
-        for j in range (len(A),0,-1):
+    for i in range(0,len(A)):
+        a = A[i]
+        X = B[i]
+        for j in range (0,len(A)):
                 if j != i:
-                    X = X - a[j-1] * x[j-1]
+                    X = X - a[j] * x[j]
                 elif j == i:
                     continue
-        X = X/a[i-1]
+        X = X/a[i]
 
         # novos valores para o chute, Xn 
         Xn.append(round(X,5)) # arrendondado em 5 casas decimais
-    Xn.reverse()
+
 
     # critério de parada, máx|x1 - x0| / máx |x1| < e
     subtração = subtração_lista(x,Xn)
-    e = max(subtração)# / max(Xn)
+    e = max(subtração) / max(Xn)
     if e < 0.05:
         x = Xn  
         break
